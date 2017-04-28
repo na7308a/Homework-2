@@ -18,6 +18,13 @@ Religious_Buildings <- read_csv("~/Religious_Buildings.csv")
 head (Religious_Buildings)
 head (Religious_Buildings) #T=Up to this code works, below works in console, 
 #needs df to be read in order for code to work or recode coordinates into DF
+```
+
+```{r map}
+kable(df)
+head(df)
+```
+```{r Baltimore}
 library(ggmap)
 library (ggplot2)
 geocode("Baltimore")
