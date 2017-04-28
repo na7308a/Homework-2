@@ -1,0 +1,8 @@
+all: ChurchMap.html
+
+index.html: ChurchMap.Rmd
+	Rscript -e 'library(rmarkdown);render("ChurchMap.Rmd","html_document")'
+
+clean:
+	rm *.html
+	
