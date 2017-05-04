@@ -1,0 +1,35 @@
+---
+title: "Baltimore Religious Buildings"
+author: "Nana-Ama"
+date: "April 27, 2017"
+output: html_document
+---
+```{r churches}
+library(readr)
+library(knitr)
+Religious_Buildings <- read_csv ("C:\Users/na7308a/Documents/Religious_Buildings.csv")
+head (Religious_Buildings)
+
+```
+Above is the codechunk needed for importing the Baltimore Religious Buildings csv file.
+
+This codechunk reads the dataframe that has all the coordinates of each religious building.
+```{r Baltimore}
+library(ggmap)
+library (ggplot2)
+df <-geocode(Religious_Buildings$`Location 1`)
+theme_set(theme_bw(16))
+BaltimoreMap <- qmap("Baltimore", zoom = 13, color = "bw", legend = "topleft")
+BaltimoreMap +
+geom_point(aes(x = lat, y = lon, colour = type, size = type),
+data = df)
+
+```
+kable(df)
+{r mapping}
+
+
+ggplot(aes(x=lon, y=lat), data=df)
+geocode("Baltimore")
+qmplot(lon, lat, data = df,colour = I('red'), size = I(1), darken = .3)
+This codechunk uses ggplot2 and ggmap packages to pull up a map of Baltimore from google and plot all the religious buildings onto the map. Mapping based on building type is not very necessary because there are only two building types, synagogue and church, only about 5% of which are synagogues. Almost all the synagogues are in the same district of 5 or around the same zip code. This map plots all the buildings to see the spread and amount of religious buildings are in the city. 
