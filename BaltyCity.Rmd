@@ -22,18 +22,15 @@ The code chunk above identifies the Religious Buildings dataset. It also heads t
 library(ggmap)
 library (ggplot2)
 df <-geocode(Religious_Buildings$`Location 1`)
-```
-In order to create a map of the buildings using ggmap and ggplot2, the geographic coordinates of the various locations are required. This code creates a data frame of the coordinates to be plotted on top of a map of Baltimore which is generated all through ggmap.
-```{r map}
+ggplot(aes(x=lon, y=lat),data=df)
 geocode("Baltimore")
-ggplot(aes(x=lon, y=lat), data=df)
-qmplot(lon, lat, data = df,colour = I('red'), size = I(1), darken = .3)
+qmplot("Baltimore",lon, lat, data = df,colour = I('red'), size = I(1), darken = .3)
 ```
 
 
-##Fig.1 Baltimore City Religious Buildings
 
+In order to create a map of the buildings using ggmap and ggplot2, the geographic coordinates of the various locations are required. This code creates a data frame of the coordinates to be plotted on top of a map of Baltimore which is generated all through ggmap.
 
-This code chunk uses the properties of ggmap and ggplot2 to find the coordinates of Baltimore, create a coordinate map and plot the points on a map of Baltimore.This map is the city layout of the religious  in Baltimore. 
+This code chunk also uses the properties of ggmap and ggplot2 to find the coordinates of Baltimore, create a coordinate map and plot the points on a map of Baltimore.This map is the city layout of the religious  in Baltimore. 
 
  
